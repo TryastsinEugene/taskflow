@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <NuqsAdapter>
-        <Suspense fallback="Loading..."></Suspense>
+        <Suspense fallback="Loading...">
           <TaskViewSwitcher />    
           <CreateTaskModal /> 
           <EditTaskModal />
