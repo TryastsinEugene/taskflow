@@ -22,7 +22,7 @@ export const TaskActions = ({id, children}: TaskActionsProps) => {
     const router = useRouter();
 
     async function deleteTask(id: string){
-        await axios.delete(`http://localhost:3500/tasks/${id}`)
+        await axios.delete(`https://taskflow-api-lcfd.onrender.com/tasks/${id}`)
         toast.success("Task deleted");
         router.refresh();
     }

@@ -32,8 +32,8 @@ export const TaskViewSwitcher = () => {
         const fetchTasks = async () => {
             try {
             const url = status
-                ? `http://localhost:3500/tasks?status=${status}`
-                : "http://localhost:3500/tasks";
+                ? `https://taskflow-api-lcfd.onrender.com/tasks?status=${status}`
+                : "https://taskflow-api-lcfd.onrender.com/tasks";
 
             const response = await axios.get<Task[]>(url);
             setTasks(response.data); 

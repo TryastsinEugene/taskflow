@@ -31,7 +31,7 @@ export const EditTaskForm = ({
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-            const url = `http://localhost:3500/tasks/${taskId}`
+            const url = `https://taskflow-api-lcfd.onrender.com/tasks/${taskId}`
 
             const response = await axios.get<Task>(url);
             setTask(response.data); 
@@ -76,8 +76,9 @@ export const EditTaskForm = ({
                             priority: Number(values.priority), 
                         };
 
-        axios.patch(`http://localhost:3500/tasks/${taskId}`, payload )            
+        axios.patch(`https://taskflow-api-lcfd.onrender.com/tasks/${taskId}`, payload )            
             .then(function (response) {
+                onCancel();
                 toast.success("Task updated!");
             })
             .catch(function (error) {

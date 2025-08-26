@@ -48,7 +48,7 @@ export const DataKanban = ({ data } : DataKanbanProps) => {
 
     try {
       // ✅ Відправляємо PATCH на бекенд
-       axios.patch(`http://localhost:3500/tasks/${draggableId}/status`, {
+       axios.patch(`https://taskflow-api-lcfd.onrender.com/tasks/${draggableId}/status`, {
         status: targetColumn.status,
       });
     } catch (error) {

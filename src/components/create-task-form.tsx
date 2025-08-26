@@ -24,7 +24,7 @@ export const CreateTaskForm = ({
     const formSchema = z.object({
         title: z.string().min(2).max(50),
         description: z.string(),
-        status: z.boolean(),
+        status: z.string(),
         priority: z.string(),
         dueDate: z.date()
     })
@@ -34,7 +34,7 @@ export const CreateTaskForm = ({
         defaultValues: {
                             title: "",         
                             description: "",
-                            status: false,
+                            status: "",
                             priority: "5",
                             dueDate: new Date(),
                         },
@@ -43,19 +43,19 @@ export const CreateTaskForm = ({
     function onSubmit(values: z.infer<typeof formSchema>){
         const payload = {
                             ...values,
+                            status: values.status === "true",
                             priority: Number(values.priority), 
                         };
 
-        axios.post('http://localhost:3500/tasks', payload )            
-            .then(function (response) {
-                console.log(response); 
+           axios.post('https://taskflow-api-lcfd.onrender.com/tasks', payload )            
+                        .then(function (response) {
+                        onCancel();
                 toast.success("Task created!");
             })
             .catch(function (error) {
                 console.log(error);
                 toast.success("Task did not created!");
             });
-
 
                        
     }
