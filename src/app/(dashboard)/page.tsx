@@ -1,3 +1,4 @@
+"use client"
 
 import { CreateTaskModal } from "@/components/create-task-modal";
 import { EditTaskModal } from "@/components/edit-task-modal";
